@@ -115,9 +115,11 @@ function handleClickDelete(event) {
 
 // Remove All
 function handleClickRemoveAll() {
-  const messageWarning = confirm('are you sure you want to delete all todos')
+
+  const messageWarning = confirm('Уверены что хотите удалить все Todo')
   if (messageWarning) {
-    data.length = 0
+    data = data.filter((item) => item.status != 'done')
+    // console.log(data)
     render(data, todoElement, inProgressElement, doneElement)
     renderCounters(data, contentCountTodo, contentCountProgress, contentCountDone)
   }
@@ -193,7 +195,7 @@ function handleChangeStatus(event) {
   })
 
   if (role == 'select' && countProgress == 6 && target.value == 'inProgress') {
-    alert('No more than 6 cases can be in this column')
+    alert('Много накопившихся задач!! Доделай их!!')
 
     data.forEach((item) => {
       if (item.status == 'todo') {
