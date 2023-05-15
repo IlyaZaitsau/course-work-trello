@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./scss/app.scss">
+  <script src="./js/app.js" type="module"></script>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="header__row">
+        <div class="header__logo">Trello</div>
+        <div id="clock" class="clock"></div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="container">
+      <div class="content__counter">
+        <div id="contentCountTodo" class="content__top"></div>
+        <div id="contentCountProgress" class="content__top"></div>
+        <div id="contentCountDone" class="content__top"></div>
+      </div>
+
+      <div id="row" class="content__row">
+        <!-- Todo -->
+
+        <div class="content__col">
+
+          <div id="todo" class="card"></div>
+          <button id="btnAdd" class="btn btn-primary btn__todo" data-role="addTodo">Add Todo</button>
+        </div>
+        <!-- inProgress -->
+        <div class="content__col">
+
+          <div id="inProgress" class="card"></div>
+        </div>
+        <!-- Done -->
+        <div class="content__col">
+
+          <div id="done" class="card"></div>
+          <button id="btnRemoveAll" class="btn btn-danger btn__todo">Remove All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal -->
+  <div id="modal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content modal__content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-1 fw-bold">Create Todo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form" class="form" action="#">
+            <input id="modalTitle" class="modal__input" type="text" placeholder="Title">
+            <textarea id="modalTextarea" class="modal__textarea" cols="30" rows="10"
+              placeholder="Enter text"></textarea>
+            <select id="selectColor" class="card__select">
+              <option selected>Color</option>
+              <option value="bg-secondary text-white">Grey</option>
+              <option value="bg-info text-dark">Blue</option>
+              <option value="bg-warning text-dark">Yellow</option>
+              <option value="bg-success text-white">Green</option>
+            </select>
+            <select id="selectUser" class="card__select"></select>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id="saveBtnModal" type="submit" class="btn btn-primary">Confirm card</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal edit -->
+  <div id="editModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content modal__content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-1 fw-bold">Create Todo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editForm" class="form" action="#">
+            <input id="modalEditTitle" class="modal__input" type="text" placeholder="Title">
+            <textarea id="modalEditTextarea" class="modal__textarea" cols="30" rows="10"
+              placeholder="Enter text"></textarea>
+            <select id="selectEditColor" class="card__select">
+              <option selected>Color</option>
+              <option value="bg-secondary text-white">Grey</option>
+              <option value="bg-info text-dark">Blue</option>
+              <option value="bg-warning text-dark">Yellow</option>
+              <option value="bg-success text-white">Green</option>
+            </select>
+            <input type="hidden" id="editId">
+            <input type="hidden" id="editStatus">
+            <input type="hidden" id="editDate">
+            <select id="selectEditUser" class="card__select"></select>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id="saveEditBtnModal" type="submit" class="btn btn-primary">Confirm card</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
